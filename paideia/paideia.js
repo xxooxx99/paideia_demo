@@ -32,7 +32,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showContent(currentUserType);
 });
-
+const userNameDisplay = document.getElementById("userNameDisplay");
+const savedName = localStorage.getItem("userName");
+if (savedName) {
+  userNameDisplay.textContent = savedName;
+}
+const infoBtn = document.querySelector(".infoBtn");
+if (infoBtn) {
+  infoBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    const userNameInput = document.getElementById("userName");
+    const name = userNameInput.value.trim();
+    if (name) {
+      localStorage.setItem("userName", name);
+      userNameDisplay.textContent = name;
+      alert("이름이 저장되었습니다.");
+    } else {
+      alert("이름을 입력해주세요.");
+    }
+  });
+}
 function showContent(userType) {
   const studentContent = document.getElementById("studentContent");
   const adultContent = document.getElementById("adultContent");

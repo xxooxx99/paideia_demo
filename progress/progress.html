@@ -23,7 +23,8 @@
                 <!-- 디데이 생성 -->
                 <p class="dDay">d-day</p>
                 <!-- 내 아이디 자동생성 -->
-                <p class="cheerUpMent"><small class="text-body-secondary">${코코아버터}님 오늘도 화이팅하세요</small></p>
+                <p class="cheerUpMent"><small class="text-body-secondary"><span id="userNameDisplay">코코아버터</span>님 오늘도
+                        화이팅하세요</small></p>
             </div>
             <div class="cateGory">
                 <article class="cateGory1" id="homeButton">
@@ -64,7 +65,7 @@
 
             <div class="aaaa">
                 <div class="cards">
-                    <img src="/front/image/star.png" class="star" alt="star">
+                    <img src="/front/image/Star 11.png" class="star" alt="star">
                     <div class="card-body">
 
                         <!-- <h5 class="card-title">문제분석</h5> -->
@@ -72,6 +73,7 @@
 
                             <details id="todayDetails">
                                 <!-- //기본설정이 오늘의문제, 아래 화살표 누르면 퀴즈로 연동되게 -->
+
                                 <summary id="learning">오늘의 문제</summary>
                                 <p id="quiz">오늘의 퀴즈</p>
                             </details>
@@ -83,8 +85,8 @@
                             넣을까 고민중
                         </p>
                         <p class="todayQuiz" id="todayQuiz">{{quizContent| safe}}</p>
-                        <!-- <p class="card-text">정답률 반환?</p>
-                        <p class="card-text">1:1</p> -->
+                        <p class="card-text" id="answerRate">정답률 반환?</p>
+
                     </div>
                 </div>
             </div>
