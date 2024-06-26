@@ -1,10 +1,10 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, render_template
 from flask_cors import CORS
 import os
 import requests
-from openai import OpenAI  # 수정된 부분
 from dotenv import load_dotenv
 from gptmodule.gpt.gpt_chat import gpt_chat
+from front.graph.graph import generate_graph
 from datetime import datetime
 import pymysql
 import pandas as pd
@@ -13,16 +13,16 @@ import pandas as pd
 load_dotenv()
 
 app = Flask(__name__, static_folder='static')
-
 CORS(app)  # 모든 도메인에서 접근 허용
 
-#db 연결
+# DB 연결 설정
 db_config = {
     'user': os.getenv('DB_USER'),
     'password': os.getenv('DB_PASSWORD'),
     'host': os.getenv('DB_HOST'),
     'database': os.getenv('DB_NAME')
 }
+
 def get_db_connection():
     return pymysql.connect(
         user=db_config['user'],
@@ -32,7 +32,6 @@ def get_db_connection():
         cursorclass=pymysql.cursors.DictCursor
     )
 
-
 @app.route('/api/gpt', methods=['POST'])
 def gpt_api():
     try:
@@ -41,11 +40,11 @@ def gpt_api():
             raise ValueError("No data provided")
 
         age_category = data.get('ageCategory')
-        grade_category = data.get('gradeCategory')
-        subject_category = data.get('subjectCategory')
-        request_type = data.get('requestType')
-        language_setting = data.get('languageSetting')
-        prompt = data.get('prompt')
+        grade_category = data.get('GradeCategory')
+        subject_category = data.get('SubjectCategory')
+        request_type = data.get('RequestType')
+        language_setting = data.get('LanguageSetting')
+        prompt = data.get('Prompt')
 
         # 디버깅 출력
         print(f"Received data: {data}")
@@ -60,8 +59,7 @@ def gpt_api():
         # GPT 모듈 호출
         gpt_response = gpt_chat(prompt, age_category, grade_category, subject_category, request_type, language_setting)
 
-
-     # 학습 자료 및 문제와 해설을 분리하여 추출
+        # 학습 자료 및 문제와 해설을 분리하여 추출
         lines = gpt_response.split('\n')
         contents = []
         content = ""
@@ -86,26 +84,24 @@ def gpt_api():
         # learning_data 테이블에 데이터 삽입
         created_at = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         topic = prompt[:50]  # 예시로 프롬프트의 앞 50자를 주제로 사용
-        # category_id = subject_category  # subject_category를 category_id로 사용
         cursor.execute(
             "INSERT INTO learning_data (created_at, topic) VALUES (%s, %s)",
             (created_at,  topic)
         )
         learning_data_id = cursor.lastrowid
 
-       # contents를 article 테이블에 삽입
+        # contents를 article 테이블에 삽입
         for content in contents:
             cursor.execute(
                 "INSERT INTO article (content, learning_data_id) VALUES (%s, %s)",
                 (content, learning_data_id)
             )
 
-   # 변경 사항 커밋
+        # 변경 사항 커밋
         cnx.commit()
 
         cursor.close()
         cnx.close()
-
 
         # 응답 반환
         return jsonify({'response': gpt_response})
@@ -155,7 +151,6 @@ def print_txt():
 def serve_front(path):
     return send_from_directory('front', path)
 
-
 @app.route('/api/articles/<int:learning_data_id>', methods=['GET'])
 def get_articles(learning_data_id):
     try:
@@ -185,6 +180,30 @@ def get_learning_data():
     except Exception as e:
         print(f"Error in get_learning_data: {str(e)}")
         return jsonify({'error': str(e)}), 500
+
+@app.route('/')
+def index():
+    return render_template('first.html')
+
+@app.route('/paideia')
+def paideia():
+    return render_template('paideia.html')
+
+@app.route('/graph')
+def graph():
+    return render_template('graph.html')
+
+@app.route('/progress')
+def progress():
+    return render_template('progress.html')
+
+@app.route('/setting')
+def setting():
+    return render_template('setting.html')
+
+@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory('static', path)
 
 
 if __name__ == '__main__':
