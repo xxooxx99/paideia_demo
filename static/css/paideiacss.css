@@ -1,7 +1,75 @@
 :root {
   --bg-form-color: #80cbc4;
 }
+.topLeftcard {
+  background-color: bisque;
+}
+.leftCardBody .leftTopCard {
+  background-color: white;
+  padding: 10px;
+  margin: 40px 20px 20px 20px;
+  border-radius: 10px;
+}
 
+.leftCardBody {
+  background-color: var(--bg-form-color);
+  width: 30%;
+}
+.cateGory {
+  width: 94%;
+  margin: 0px auto 0px auto;
+  cursor: pointer;
+}
+.cateGory1 {
+  background-color: var(--bg-form-color);
+  color: white;
+}
+.cateGory1:hover {
+  color: var(--bg-form-color);
+  background-color: white;
+}
+
+.cateGory2 {
+  background-color: var(--bg-form-color);
+  color: white;
+}
+.cateGory3 {
+  background-color: var(--bg-form-color);
+  color: white;
+}
+.cateGory4 {
+  background-color: var(--bg-form-color);
+  color: white;
+}
+.cateGory2:hover {
+  background-color: white;
+  color: var(--bg-form-color);
+}
+.cateGory3:hover {
+  background-color: white;
+  color: var(--bg-form-color);
+}
+.cateGory4:hover {
+  background-color: white;
+  color: var(--bg-form-color);
+}
+
+.cateGory1 .homeIcon {
+  /* background-image: url("cocohome.png"); */
+  width: 20px;
+}
+.cateGory2 .cocograph {
+  /* background-image: url("progress.png"); */
+  width: 20px;
+}
+.cateGory3 .progressIcon {
+  /* background-image: url("cocograph.png"); */
+  width: 20px;
+}
+.cateGory4 .cocoSettingIcon {
+  /* background-image: url("cocosetting.png"); */
+  width: 25px;
+}
 .rightCardBody {
   width: 70%;
   padding: 20px;
@@ -26,9 +94,10 @@
   flex-wrap: wrap;
   margin: -10px;
 }
-.col:nth-child(-n + 2) .cards {
-  height: 280px; /* 아래 카드들과 동일한 높이로 설정 */
-}
+/* .col:nth-child(-n + 2) .cards {
+  height: 280px;  */
+/* 아래 카드들과 동일한 높이로 설정 */
+/* } */
 
 /* 나의 노력과 학생 버전 콘텐츠 카드 내부 콘텐츠 스크롤 가능하도록 설정 */
 /* .col:nth-child(-n + 2) .cards > div {
@@ -43,12 +112,13 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
+  height: 600px;
 }
 
 /* 아래 카드들의 높이 명시적 설정 */
-.col:nth-child(n + 3) .cards {
+/* .col:nth-child(n + 3) .cards {
   height: 280px;
-}
+} */
 
 .firstTitle,
 .contentTitle1,
@@ -69,11 +139,14 @@
 .searchContentBox {
   width: 70%;
   margin-right: 10px;
+  align-items: end;
 }
 
 .contentSearchBtn {
   background-color: var(--bg-form-color);
   color: white;
+  width: 120px;
+  margin-left: 300px;
   border: none;
   padding: 5px 10px;
 }
@@ -99,6 +172,7 @@
 .questionInput {
   margin-bottom: 10px;
   height: 100px;
+  text-align: center;
 }
 
 .answerArea {
@@ -120,7 +194,7 @@
 .card-body {
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 100%;
 }
 
 .content-section {
@@ -161,3 +235,37 @@
   background-color: #e9ecef !important;
 }
 /* 저장포인트 */
+.btn.btn-secondary.dropdown-toggle {
+  padding: 8px 12px; /* 버튼 내부 패딩 조정 */
+}
+.question-section {
+  margin-top: 10px;
+}
+/* 드롭다운 버튼 간격 줄이기 */
+.dropdown.mb-2 {
+  margin-bottom: -4px !important;
+}
+.row .col.mb-2 {
+  margin-bottom: -4px !important;
+}
+/* 마지막 드롭다운의 아래 마진 제거 */
+.dropdown.mb-2:last-of-type {
+  margin-bottom: 2px !important;
+}
+
+/* 질문 입력 영역과의 간격 조정 */
+.question-section {
+  margin-top: 10px;
+}
+
+/* 버튼 내부 패딩 줄이기 */
+.btn.btn-secondary.dropdown-toggle {
+  padding: 6px 12px;
+}
+
+/* 전체적인 간격 조정을 위한 추가 스타일 */
+#studentContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* 요소들 사이의 간격을 일괄적으로 설정 */
+}

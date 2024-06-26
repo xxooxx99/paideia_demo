@@ -40,11 +40,11 @@ def gpt_api():
             raise ValueError("No data provided")
 
         age_category = data.get('ageCategory')
-        grade_category = data.get('GradeCategory')
-        subject_category = data.get('SubjectCategory')
-        request_type = data.get('RequestType')
-        language_setting = data.get('LanguageSetting')
-        prompt = data.get('Prompt')
+        grade_category = data.get('gradeCategory')
+        subject_category = data.get('subjectCategory')
+        request_type = data.get('requestType')
+        language_setting = data.get('languageSetting')
+        prompt = data.get('prompt')
 
         # 디버깅 출력
         print(f"Received data: {data}")
