@@ -152,9 +152,12 @@
   width: 150px;
 }
 .likeCardDiv {
-  width: 150px;
-  border: #80cbc4;
-  background-color: 10px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #c7c9cc;
+  height: 300px;
+  width: 350px;
 }
 
 .contentSearchBtn {

@@ -148,3 +148,10 @@
   border-color: white;
 }
 /* 호버할건지 */
+.myCard1 {
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #c7c9cc;
+  height: 50px;
+}
