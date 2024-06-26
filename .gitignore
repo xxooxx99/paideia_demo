@@ -1,6 +1,2 @@
 .env
-<<<<<<< HEAD
-.venv
-=======
-.venv
->>>>>>> testFront
+venv
