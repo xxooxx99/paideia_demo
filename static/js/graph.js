@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const userNameDisplay = document.getElementById("userNameDisplay");
+  const savedName = localStorage.getItem("userName");
+  if (savedName) {
+    userNameDisplay.textContent = savedName;
+  }
+
   const buttons = {
     homeButton: urls.homeButton,
     graphButton: urls.graphButton,

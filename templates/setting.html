@@ -62,12 +62,11 @@
                         <div class="card-body">
                             <h5 class="card-title">내 정보</h5>
                             <form id="userInfoForm">
-                                <input type="text" id="userName" placeholder="이름" class="form-control mb-2">
+                                <input type="text" id="userName" placeholder="이름" class="nameBox">
                                 <!-- <input type="text" id="userKeywords" placeholder="키워드 (쉼표로 구분)"
                                     class="form-control mb-2"> -->
-                                <input type="text" id="userGoal" placeholder="목표" class="form-control mb-2">
-                                <button type="submit" class="infoBtn">정보
-                                    저장</button>
+                                <input type="text" id="userGoal" placeholder="목표" class="myGoal">
+
                             </form>
                         </div>
                     </div>
@@ -79,7 +78,7 @@
                             <!-- 여기안에 추가 -->
                             <div id="dDayList">
                                 <!-- 기존 디데이 목록이 여기에 표시됩니다 -->
-                                <p class="card-text">D-day<span id="mainDDay"></span></p>
+                                <h5 class="card-text">D-day<span id="mainDDay"></span></h5>
                             </div>
                             <div class="dday-add-box">
                                 <input type="text" id="eventName" placeholder="디데이 이름" class="dDayAddBox">
@@ -95,10 +94,15 @@
                     <div class="cards">
 
                         <div class="card-body">
-                            <h5 class="card-title">인쇄예약모드
-                            </h5>
+                            <h5>나의정보</h5>
+                            <div class="myCard1"></div>
+                            <button type="submit" class="infoBtn">정보
+                                저장</button>
+
+                            <!-- <h5 class="card-title">인쇄예약모드
+                            </h5> -->
                             <!-- 수정 -->
-                            <form id="printReservationForm">
+                            <!-- <form id="printReservationForm">
                                 <div class="mb-2">
 
                                     <select id="printDay" class="form-select">
@@ -116,7 +120,7 @@
                                     <input type="time" id="printTime" class="form-control">
                                 </div>
                                 <button type="submit" class="reservationBtn">예약 설정</button>
-                            </form>
+                            </form> -->
 
                         </div>
                     </div>
@@ -125,8 +129,8 @@
                     <div class="cards">
 
                         <div class="settingCard">
-                            <h5 class="settingTitle">설정</h5>
-                            <p class="textSize">글씨크기</p>
+                            <!-- <h5 class="settingTitle">설정</h5> -->
+                            <h5 class="textSize">글씨크기</h5>
                             <button id="increaseFontBtn" class="textSizeBtn">글씨 크게</button>
                             <button id="decreaseFontBtn" class="textSizeBtn">글씨 작게</button>
                             <div>

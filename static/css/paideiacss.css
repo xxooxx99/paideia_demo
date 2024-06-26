@@ -1,6 +1,9 @@
 :root {
   --bg-form-color: #80cbc4;
 }
+.card-group {
+  background-color: #eff3f2;
+}
 .topLeftcard {
   background-color: bisque;
 }
@@ -72,6 +75,7 @@
 }
 .rightCardBody {
   width: 70%;
+  margin-top: 70px;
   padding: 20px;
   background-color: #eff3f2;
   height: 750px;
@@ -111,7 +115,9 @@
   border-radius: 10px;
   padding: 20px;
   display: flex;
+  margin: 7px;
   flex-direction: column;
+  width: 450px;
   height: 600px;
 }
 
@@ -137,21 +143,36 @@
 }
 
 .searchContentBox {
-  width: 70%;
-  margin-right: 10px;
+  width: 400px !important;
+  margin-right: 80px;
   align-items: end;
+}
+.likeCardOutLine {
+  width: 160px;
+  padding: 5px;
+  margin: 10px;
+}
+.likeCard {
+  width: 150px;
+}
+.likeCardDiv {
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #c7c9cc;
+  height: 300px;
+  width: 350px;
 }
 
 .contentSearchBtn {
   background-color: var(--bg-form-color);
   color: white;
   width: 120px;
-  margin-left: 300px;
+  margin-left: 260px;
   border: none;
   padding: 5px 10px;
 }
-
-.myEffortsContent {
+ƒ .myEffortsContent {
   flex-grow: 1;
 }
 
@@ -171,7 +192,7 @@
 
 .questionInput {
   margin-bottom: 10px;
-  height: 100px;
+  height: 160px;
   text-align: center;
 }
 
@@ -199,6 +220,8 @@
 
 .content-section {
   display: none;
+  width: 400px;
+  margin: 10px;
 }
 
 .active {
