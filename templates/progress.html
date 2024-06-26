@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/progress.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -16,6 +17,7 @@
         };
     </script>
 </head>
+
 <body>
     <div class="card-group">
         <div class="leftCardBody">
@@ -30,7 +32,8 @@
                     홈
                 </article>
                 <article class="cateGory2" id="graphButton">
-                    <img src="{{ url_for('static', filename='image/cocograph.png') }}" class="progressIcon" alt="progressIcon">
+                    <img src="{{ url_for('static', filename='image/cocograph.png') }}" class="progressIcon"
+                        alt="progressIcon">
                     학습률
                 </article>
                 <article class="cateGory3" id="progressButton">
@@ -38,7 +41,8 @@
                     학습페이지
                 </article>
                 <article class="cateGory4" id="settingButton">
-                    <img src="{{ url_for('static', filename='image/cocosetting.png') }}" class="cocoSettingIcon" alt="cocoSettingIcon">
+                    <img src="{{ url_for('static', filename='image/cocosetting.png') }}" class="cocoSettingIcon"
+                        alt="cocoSettingIcon">
                     설정
                 </article>
             </div>
@@ -60,7 +64,8 @@
                                 <p id="quiz">오늘의 퀴즈</p>
                             </details>
                         </h5>
-                        <p class="todayLearning" id="todayLearning">오늘의 문제 누르면 오늘의 문제, 오늘의 퀴즈를 누르면 오늘의 퀴즈 나올거고, 답변 입력하고 맞는지 확인버튼 넣을 예정
+                        <p class="todayLearning" id="todayLearning">오늘의 문제 누르면 오늘의 문제, 오늘의 퀴즈를 누르면 오늘의 퀴즈 나올거고, 답변 입력하고
+                            맞는지 확인버튼 넣을 예정
                             문제앞에 체크박스 처럼 좋아요 표시 할 수 있게 할거고, 연령이나 과목은 홈에 기본 저장되어있는대로 연동될듯. gpt는 사용자가 찾기 쉽게 앞에다 구현했으나, 여기도
                             넣을까 고민중
                         </p>
@@ -76,7 +81,9 @@
             </article>
         </div>
     </div>
-
+    <h1>Learning Data Viewer</h1>
+    <div id="learning-data"></div>
+    <div id="articles"></div>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const gptResponse = localStorage.getItem('gptResponse');
@@ -108,4 +115,5 @@
         });
     </script>
 </body>
+
 </html>

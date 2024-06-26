@@ -5,7 +5,7 @@ import requests
 from dotenv import load_dotenv
 from gptmodule.gpt.gpt_chat import gpt_chat
 from front.graph.graph import generate_graph
-from datetime import datetime
+from datetime import datetime,  timedelta, timezone
 import pymysql
 import pandas as pd
 
@@ -38,13 +38,13 @@ def gpt_api():
         data = request.json
         if not data:
             raise ValueError("No data provided")
-
+        
         age_category = data.get('ageCategory')
-        grade_category = data.get('GradeCategory')
-        subject_category = data.get('SubjectCategory')
-        request_type = data.get('RequestType')
-        language_setting = data.get('LanguageSetting')
-        prompt = data.get('Prompt')
+        grade_category = data.get('gradeCategory')
+        subject_category = data.get('subjectCategory')
+        request_type = data.get('requestType')
+        language_setting = data.get('languageSetting')
+        prompt = data.get('prompt')
 
         # 디버깅 출력
         print(f"Received data: {data}")
@@ -82,7 +82,10 @@ def gpt_api():
         cursor = cnx.cursor()
         
         # learning_data 테이블에 데이터 삽입
-        created_at = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+         # 현재 시간을 KST로 변환
+        now_utc = datetime.now(timezone.utc)
+        now_kst = now_utc + timedelta(hours=9)
+        created_at = now_kst.strftime('%Y-%m-%d %H:%M:%S')
         topic = prompt[:50]  # 예시로 프롬프트의 앞 50자를 주제로 사용
         cursor.execute(
             "INSERT INTO learning_data (created_at, topic) VALUES (%s, %s)",
