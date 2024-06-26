@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 #!/Users/k_o_n/Downloads/paideia_demo/venv/bin/python3.12
+=======
+#!/bin/sh
+'''exec' "/Users/t2023-m0091/Desktop/새 파이데이아/venv/bin/python3.12" "$0" "$@"
+' '''
+>>>>>>> testFront
 # -*- coding: utf-8 -*-
 import re
 import sys
