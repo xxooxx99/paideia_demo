@@ -1,6 +1,9 @@
 :root {
   --bg-form-color: #80cbc4;
 }
+.card-group {
+  background-color: #eff3f2;
+}
 .topLeftcard {
   background-color: bisque;
 }
@@ -72,6 +75,7 @@
 }
 .rightCardBody {
   width: 70%;
+  margin-top: 70px;
   padding: 20px;
   background-color: #eff3f2;
   height: 750px;

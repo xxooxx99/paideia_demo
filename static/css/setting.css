@@ -80,6 +80,7 @@
   color: var(--bg-form-color);
 }
 .infoBtn {
+  padding-top: 20px;
   background-color: var(--bg-form-color) !important;
   border-color: white !important;
 }
@@ -129,6 +130,7 @@
 .textSize {
   text-align: left;
   margin-left: 20px;
+  padding: 20px;
 }
 .textSizeBtn {
   background-color: var(--bg-form-color);
