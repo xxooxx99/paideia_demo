@@ -4,7 +4,6 @@ import os
 import requests
 from dotenv import load_dotenv
 from gptmodule.gpt.gpt_chat import gpt_chat
-from front.graph.graph import generate_graph
 from datetime import datetime
 import pymysql
 import pandas as pd
