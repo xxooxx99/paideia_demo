@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapse${index}" aria-expanded="false"
                     aria-controls="collapse${index}">
-                    ${item.topic} (ID: ${item.id}, Created At: ${item.created_at})
+                    ${item.topic} (No. ${item.id}, 질문날짜: ${item.created_at})
                 </button>
             </h2>
             <div id="collapse${index}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">

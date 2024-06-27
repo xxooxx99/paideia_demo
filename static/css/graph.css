@@ -110,17 +110,7 @@
   font-weight: bold;
 }
 
-.accordion-button {
-  background-color: #28a745; /* Bootstrap's green color for example */
-  color: #fff; /* White text */
-}
-
 .accordion-button.collapsed {
   background-color: #fff; /* White background for collapsed state */
-  color: #28a745; /* Green text when collapsed */
-}
-
-.accordion-button:not(.collapsed) {
-  background-color: #28a745; /* Green background when expanded */
-  color: #fff; /* White text when expanded */
+  color: #3da69b;
 }
