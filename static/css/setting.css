@@ -79,7 +79,15 @@
   background-color: white;
   color: var(--bg-form-color);
 }
-
+.infoBtn {
+  padding-top: 20px;
+  background-color: var(--bg-form-color) !important;
+  border-color: white !important;
+}
+.reservationBtn {
+  background-color: var(--bg-form-color) !important;
+  border-color: white !important;
+}
 .cards {
   position: relative;
   background-color: white;
@@ -93,5 +101,59 @@
   top: 10px; /* 원하는 위치로 조정 */
   right: 10px; /* 원하는 위치로 조정 */
 }
+.dday-add-box {
+  display: flex;
+  flex-direction: column;
+  gap: -4px; /* 요소들 사이의 간격을 5px로 설정 */
+  align-items: center;
+}
+.dDayBtn {
+  background-color: var(--bg-form-color);
+  border: none;
+  margin-top: -7px;
+  height: 50px;
+}
+.dDayDateBox {
+  margin-bottom: -5px;
+}
+.dDayBtn {
+  white-space: nowrap; /* 버튼 텍스트가 줄바꿈되지 않도록 설정 */
+  padding: 5px 10px; /* 버튼 내부 여백 설정 */
+}
+.settingCard {
+  text-align: center;
+}
+.settingTitle {
+  /* margin: 20px; */
+  padding: 10px;
+}
+.textSize {
+  text-align: left;
+  margin-left: 20px;
+  padding: 20px;
+}
+.textSizeBtn {
+  background-color: var(--bg-form-color);
+  border-color: white;
+  height: 50px;
+}
+.reservationBtn {
+  background-color: var(--bg-form-color);
+  height: 50px;
+}
 
+.qNa {
+  margin: 10px;
+  height: 50px;
+  align-items: center;
+  background-color: var(--bg-form-color);
+  border-color: white;
+}
 /* 호버할건지 */
+.myCard1 {
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #c7c9cc;
+  height: 50px;
+}

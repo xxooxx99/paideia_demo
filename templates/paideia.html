@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="/front/set/setting.css">
-    <link rel="stylesheet" href="/front/paideia/paideiacss.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/paideiacss.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="/front/paideia/paideia.js" type="module"></script>
+    <script src="{{ url_for('static', filename='js/paideia.js') }}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <style>
         .content-section {
@@ -19,8 +20,9 @@
             display: block;
         }
 
-        .leftContent, .rightContent {
-            padding: 10px;
+        .leftContent,
+        .rightContent {
+            padding: 5px;
         }
 
         .leftContent {
@@ -35,33 +37,46 @@
             width: 100%;
         }
     </style>
+    <script>
+        const urls = {
+            homeButton: "{{ url_for('paideia') }}",
+            graphButton: "{{ url_for('graph') }}",
+            progressButton: "{{ url_for('progress') }}",
+            settingButton: "{{ url_for('setting') }}"
+        };
+    </script>
 </head>
+
 <body>
     <div class="card-group">
         <div class="leftCardBody">
             <div class="leftTopCard">
                 <h5 class="cardTitle">기말고사</h5>
                 <p class="dDay">d-day</p>
-                <p class="cheerUpMent"><small class="text-body-secondary">${코코아버터}님 오늘도 화이팅하세요</small></p>
+                <p class="cheerUpMent"><small class="text-body-secondary"><span id="userNameDisplay">코코아버터</span>님 오늘도
+                        화이팅하세요</small></p>
             </div>
             <div class="cateGory">
                 <article class="cateGory1" id="homeButton">
-                    <img src="/front/image/cocohome.png" class="homeIcon" alt="homeIcon">
+                    <img src="{{ url_for('static', filename='image/cocohome.png') }}" class="homeIcon" alt="homeIcon">
                     홈
                 </article>
 
                 <article class="cateGory2" id="graphButton">
-                    <img src="/front/image/cocograph.png" class="cocograph" alt="cocograph">
+                    <img src="{{ url_for('static', filename='image/cocograph.png') }}" class="cocograph"
+                        alt="cocograph">
                     학습률
                 </article>
 
                 <article class="cateGory3" id="progressButton">
-                    <img src="/front/image/progress.png" class="progressIcon" alt="progressIcon">
+                    <img src="{{ url_for('static', filename='image/progress.png') }}" class="progressIcon"
+                        alt="progressIcon">
                     학습페이지
                 </article>
 
                 <article class="cateGory4" id="settingButton">
-                    <img src="/front/image/cocosetting.png" class="cocoSettingIcon" alt="cocoSettingIcon">
+                    <img src="{{ url_for('static', filename='image/cocosetting.png') }}" class="cocoSettingIcon"
+                        alt="cocoSettingIcon">
                     설정
                 </article>
             </div>
@@ -73,7 +88,8 @@
                         <div id="studentContent" class="content-section">
                             <h5 class="firstTitle">학생 버전 콘텐츠</h5>
                             <div class="dropdown mb-2">
-                                <button id="gradeCategory" class="btn btn-secondary dropdown-toggle fullWidth" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button id="gradeCategory" class="btn btn-secondary dropdown-toggle fullWidth"
+                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     학년 선택
                                 </button>
                                 <ul class="dropdown-menu">
@@ -83,7 +99,8 @@
                                 </ul>
                             </div>
                             <div class="dropdown mb-2">
-                                <button id="subjectCategory" class="btn btn-secondary dropdown-toggle fullWidth" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button id="subjectCategory" class="btn btn-secondary dropdown-toggle fullWidth"
+                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     과목선택
                                 </button>
                                 <ul class="dropdown-menu">
@@ -96,7 +113,8 @@
                             <div class="row">
                                 <div class="col mb-2">
                                     <div class="dropdown">
-                                        <button id="requestType" class="btn btn-secondary dropdown-toggle fullWidth" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button id="requestType" class="btn btn-secondary dropdown-toggle fullWidth"
+                                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             질문 유형
                                         </button>
                                         <ul class="dropdown-menu">
@@ -107,7 +125,8 @@
                                 </div>
                                 <div class="col mb-2">
                                     <div class="dropdown">
-                                        <button id="languageSetting" class="btn btn-secondary dropdown-toggle fullWidth" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button id="languageSetting" class="btn btn-secondary dropdown-toggle fullWidth"
+                                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             언어 유형
                                         </button>
                                         <ul class="dropdown-menu">
@@ -117,19 +136,27 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="cards mt-3">
+                            <div class="question-section">
                                 <h5 class="questionTitle">질문하기</h5>
                                 <form id="questionForm">
-                                    <textarea id="questionInput" class="questionInput" placeholder="질문을 입력하세요..."></textarea>
+                                    <textarea id="questionInput" class="questionInput"
+                                        placeholder="질문을 입력하세요..."></textarea>
                                     <button class="questionBtn">질문하기</button>
                                 </form>
                             </div>
                         </div>
                         <div id="adultContent" class="content-section">
-                            <h5 class="firstTitle">성인 버전 콘텐츠</h5>
+                            <h5 class="firstTitle">어른 버전 콘텐츠</h5>
                             <div class="underFirstTitle">
                                 <input class="searchContentBox" type="text" id="courseSearch" placeholder="과목 검색...">
                                 <button class="contentSearchBtn" onclick="searchCourses()">검색</button>
+                                <div class="likeCardOutLine">
+                                    <div class="likeCard">
+                                        <h5 class="card-title">좋아요한 문제</h5>
+                                        <div class="likeCardDiv"></div>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div id="defaultContent" class="content-section">
@@ -139,64 +166,57 @@
                     </div>
                 </div>
                 <div class="rightContent">
+                    <!-- <div class="cards"> -->
                     <div class="cards">
-                        <div class="cards">
-                            <div class="card-body" style="height: 500px;"> <!-- 높이를 원하는 크기로 조정 -->
-                                <h5 class="card-title">답변</h5>
-                                <div class="answerArea" id="answerArea" style="height: 400px; overflow-y: auto;"> <!-- 높이를 원하는 크기로 조정 -->
-                                    <!-- 여기에 답변이 동적으로 추가될 예정 -->
-                                </div>
-                                <button class="answerAreaBtn">학습페이지로 가져가기</button>
+                        <div class="card-body" style="height: 500px;"> <!-- 높이를 원하는 크기로 조정 -->
+                            <h5 class="card-title">답변</h5>
+                            <div class="answerArea" id="answerArea" style="height: 400px; overflow-y: auto;">
+                                <!-- 높이를 원하는 크기로 조정 -->
+                                <!-- 여기에 답변이 동적으로 추가될 예정 -->
                             </div>
+                            <button class="answerAreaBtn">학습페이지로 가져가기</button>
                         </div>
+                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const ageCategory = urlParams.get("ageCategory");
-            showContent(ageCategory);
-        });
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const ageCategory = urlParams.get("ageCategory");
+                showContent(ageCategory);
+            });
 
-        function showContent(ageCategory) {
-            const studentContent = document.getElementById("studentContent");
-            const adultContent = document.getElementById("adultContent");
-            const defaultContent = document.getElementById("defaultContent");
+            function showContent(ageCategory) {
+                const studentContent = document.getElementById("studentContent");
+                const adultContent = document.getElementById("adultContent");
+                const defaultContent = document.getElementById("defaultContent");
 
-            studentContent.style.display = "none";
-            adultContent.style.display = "none";
-            defaultContent.style.display = "none";
+                studentContent.style.display = "none";
+                adultContent.style.display = "none";
+                defaultContent.style.display = "none";
 
-            if (ageCategory === "student") {
-                studentContent.style.display = "block";
-            } else if (ageCategory === "adult") {
-                adultContent.style.display = "block";
-            } else {
-                defaultContent.style.display = "block";
+                if (ageCategory === "student") {
+                    studentContent.style.display = "block";
+                } else if (ageCategory === "adult") {
+                    adultContent.style.display = "block";
+                } else {
+                    defaultContent.style.display = "block";
+                }
             }
-        }
-        
-        function saveToLocalStorage(response) {
-            localStorage.setItem('gptResponse', response);
 
-            // 나중에 DB로 저장하는 방법 (주석처리)
-            // fetch('/api/saveToDB', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify({ response: response })
-            // });
-        }
+            function saveToLocalStorage(response) {
+                localStorage.setItem('gptResponse', response);
+            }
 
-        document.querySelector('.answerAreaBtn').addEventListener('click', () => {
-            const response = document.getElementById('answerArea').innerText;
-            saveToLocalStorage(response);
-            window.location.href = '/front/progress/progress.html';
-        });
-    </script>
+            document.querySelector('.answerAreaBtn').addEventListener('click', () => {
+                const response = document.getElementById('answerArea').innerText;
+                saveToLocalStorage(response);
+                window.location.href = urls.progressButton;
+            });
+        </script>
 </body>
+
 </html>

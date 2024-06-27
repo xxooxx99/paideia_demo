@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/setting.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/setting.js') }}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <script>
+        const urls = {
+            homeButton: "{{ url_for('paideia') }}",
+            graphButton: "{{ url_for('graph') }}",
+            progressButton: "{{ url_for('progress') }}",
+            settingButton: "{{ url_for('setting') }}"
+        };
+    </script>
+</head>
+
+<body>
+    <div class="card-group">
+        <div class="leftCardBody">
+            <div class="leftTopCard">
+                <h5 class="cardTitle">기말고사</h5>
+                <p class="dDay">d-day</p>
+                <p class="cheerUpMent"><small class="text-body-secondary"><span id="userNameDisplay">코코아버터</span>님 오늘도
+                        화이팅하세요</small></p>
+            </div>
+            <div class="cateGory">
+                <article class="cateGory1" id="homeButton">
+                    <img src="{{ url_for('static', filename='image/cocohome.png') }}" class="homeIcon" alt="homeIcon">
+                    홈
+                </article>
+                <article class="cateGory2" id="graphButton">
+                    <img src="{{ url_for('static', filename='image/cocograph.png') }}" class="cocograph"
+                        alt="cocograph">
+                    학습률
+                </article>
+                <article class="cateGory3" id="progressButton">
+                    <img src="{{ url_for('static', filename='image/progress.png') }}" class="progressIcon"
+                        alt="progressIcon">
+                    학습페이지
+                </article>
+                <article class="cateGory4" id="settingButton">
+                    <img src="{{ url_for('static', filename='image/cocosetting.png') }}" class="cocoSettingIcon"
+                        alt="cocoSettingIcon">
+                    설정
+                </article>
+            </div>
+        </div>
+        <div class="rightCardBody">
+            <div>
+                <article class="print">
+                    <img src="{{ url_for('static', filename='image/print.png') }}" class="printIcon" alt="printIcon">
+                    인쇄하기
+                </article>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <div class="cards">
+                        <div class="card-body">
+                            <h5 class="card-title">내 정보</h5>
+                            <form id="userInfoForm">
+                                <input type="text" id="userName" placeholder="이름" class="nameBox">
+                                <!-- <input type="text" id="userKeywords" placeholder="키워드 (쉼표로 구분)"
+                                    class="form-control mb-2"> -->
+                                <input type="text" id="userGoal" placeholder="목표" class="myGoal">
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="cards">
+
+                        <div class="card-body">
+                            <!-- 여기안에 추가 -->
+                            <div id="dDayList">
+                                <!-- 기존 디데이 목록이 여기에 표시됩니다 -->
+                                <h5 class="card-text">D-day<span id="mainDDay"></span></h5>
+                            </div>
+                            <div class="dday-add-box">
+                                <input type="text" id="eventName" placeholder="디데이 이름" class="dDayAddBox">
+                                <input type="date" id="eventDate" class="dDayDateBox">
+                                <button id="addDDay" class="dDayBtn">디데이 추가</button>
+                            </div>
+                            <!-- 여기 위에 추가 -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cards">
+
+                        <div class="card-body">
+                            <h5>나의정보</h5>
+                            <div class="myCard1"></div>
+                            <button type="submit" class="infoBtn">정보
+                                저장</button>
+
+                            <!-- <h5 class="card-title">인쇄예약모드
+                            </h5> -->
+                            <!-- 수정 -->
+                            <!-- <form id="printReservationForm">
+                                <div class="mb-2">
+
+                                    <select id="printDay" class="form-select">
+                                        <option value="monday">월요일</option>
+                                        <option value="tuesday">화요일</option>
+                                        <option value="wednesday">수요일</option>
+                                        <option value="thursday">목요일</option>
+                                        <option value="friday">금요일</option>
+                                        <option value="saturday">토요일</option>
+                                        <option value="sunday">일요일</option>
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+
+                                    <input type="time" id="printTime" class="form-control">
+                                </div>
+                                <button type="submit" class="reservationBtn">예약 설정</button>
+                            </form> -->
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="cards">
+
+                        <div class="settingCard">
+                            <!-- <h5 class="settingTitle">설정</h5> -->
+                            <h5 class="textSize">글씨크기</h5>
+                            <button id="increaseFontBtn" class="textSizeBtn">글씨 크게</button>
+                            <button id="decreaseFontBtn" class="textSizeBtn">글씨 작게</button>
+                            <div>
+                                <button class="qNa">1:1 문의</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
