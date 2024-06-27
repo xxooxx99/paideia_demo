@@ -81,6 +81,7 @@
 }
 .infoBtn {
   padding-top: 20px;
+  margin-top: 20px;
   background-color: var(--bg-form-color) !important;
   border-color: white !important;
 }
