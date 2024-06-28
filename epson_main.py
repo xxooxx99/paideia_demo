@@ -154,7 +154,7 @@ def print_file():
                 # 상태 확인 로직 제거하고 5초 대기 후 프린트 작업 실행
                 time.sleep(5)
                 execute_print(device_id, job_id, access_token)
-                return jsonify({"message": "Print job executed successfully"})
+                return jsonify({"message": "프린트 출력이 완료되었습니다! 선택하신 지점으로 가서 자료를 받아가세요!"})
             else:
                 return jsonify({"error": "File upload failed"}), 500
         else:

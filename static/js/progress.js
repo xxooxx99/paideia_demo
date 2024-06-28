@@ -60,4 +60,62 @@ document.addEventListener("DOMContentLoaded", () => {
       todayQuiz.style.display = "block";
     });
   }
+
+  document.getElementById('printButton').addEventListener('click', () => {
+    let printModal = new bootstrap.Modal(document.getElementById('printModal'));
+    printModal.show();
+  });
+
+  document.getElementById('confirmButton').addEventListener('click', () => {
+    let printModal = bootstrap.Modal.getInstance(document.getElementById('printModal'));
+    printModal.hide();
+    let printerListModal = new bootstrap.Modal(document.getElementById('printerListModal'));
+    printerListModal.show();
+  });
+
+  document.getElementById('cancelButton').addEventListener('click', () => {
+    let printModal = bootstrap.Modal.getInstance(document.getElementById('printModal'));
+    printModal.hide();
+  });
+
+  document.querySelector('.printer-option').addEventListener('click', (event) => {
+    event.preventDefault();
+    let printerListModal = bootstrap.Modal.getInstance(document.getElementById('printerListModal'));
+    printerListModal.hide();
+
+    // EPSON API 호출
+    fetch('http://localhost:5002/print', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ gptResponse: localStorage.getItem('gptResponse') })
+    }).then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          alert('Error: ' + data.error);
+        } else {
+          let printSuccessModal = new bootstrap.Modal(document.getElementById('printSuccessModal'));
+          printSuccessModal.show();
+          document.body.classList.remove('modal-open');
+          document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+        }
+      }).catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while trying to print.');
+      });
+  });
+
+  document.querySelector('#printSuccessModal .btn-secondary').addEventListener('click', () => {
+    let printSuccessModal = bootstrap.Modal.getInstance(document.getElementById('printSuccessModal'));
+    printSuccessModal.hide();
+    document.body.classList.remove('modal-open');
+    document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+  });
+
+  // GPT 응답을 가져와서 표시
+  const gptResponse = localStorage.getItem('gptResponse');
+  if (gptResponse) {
+    document.getElementById('todayLearning').innerText = gptResponse;
+  }
 });

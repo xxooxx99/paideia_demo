@@ -46,6 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       const data = await response.json();
       console.log("Fetched learning data:", data.learning_data);
+      const sortedData = data.learning_data.sort(
+        (a, b) => new Date(b.created_at) - new Date(a.created_at)
+      ); 
       const limitedData = data.learning_data.slice(0, 5);
       displayLearningData(limitedData);
     } catch (error) {
